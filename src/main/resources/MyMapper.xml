@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.co.weserve.arimitsu.beantest.MyMapper">
+
+    <select id="getSysDate" resultType="date">
+        select sysdate();
+    </select>
+
+    <!-- <select id="countWithDynamicConditions" resultType="int">
+        select count(*) from test_table
+        where
+            num_column = #{conditions[0].numVal}
+            and str_column = #{conditions[1].strVal}
+            and date_column = #{conditions[2].dateVal}
+            and char_column = #{conditions[3].charVal}
+    </select> -->
+</mapper>
