@@ -4,6 +4,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -31,6 +33,7 @@ public class DataSourceConfig {
     ////////////////////////////////////////////////////////////////////////////////
 
     @Bean
+    @Scope(scopeName = "properties", proxyMode = ScopedProxyMode.TARGET_CLASS)
     @ConfigurationProperties("mydatasource.hikari")
     public HikariDataSource dataSource() {
         return DataSourceBuilder.create().type(HikariDataSource.class).build();
